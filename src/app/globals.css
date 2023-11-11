@@ -78,9 +78,18 @@ p{
   margin-top: 10px;
 }
 
-.cta-button{
+.cta-input {
   display: flex;
-  padding: 10px 177px;
+  width: 100%;
+  padding: 10px 10px;
+  text-align: center;
+  align-items: center;
+  border-radius: 12px;
+  border: 2px solid #d4d2d2;
+}
+.cta-button {
+  display: flex;
+  padding: 10px 50px;
   justify-content: center;
   align-items: center;
   gap: 10px;
@@ -88,7 +97,8 @@ p{
   border-radius: 12px;
   border: 2px solid darkslateblue;
   cursor: pointer;
-  margin: 10px 0;
+  margin: 15px 0 0;
+  flex-direction: row;
 }
 
 .cta-button:hover{

@@ -5,15 +5,15 @@ import Image from 'next/image'
 import './globals.css'
 
 export default function Home() {
-  const [Like, setLike] = useState(0)
-  const [Bio, setBio] = useState('"Today is a Gift..."')
+  const [nama, setNama] = useState('JavierAMPJ')
+  const [inputNama, setInputNama] = useState('')
 
-  function handlerTambahLike(){
-    setLike(Like + 1)
+  function handlerInputNama(event){
+    setInputNama(event.target.namaBaru)
   }
 
-  function handlerUbahBio(){
-    setBio('"that is why it is called Present"')
+  function handlerUbahNama(){
+    setNama(inputNama)
   }
   
   return (
@@ -30,21 +30,18 @@ export default function Home() {
               />
             </div>
             <div className="content-header-banner">
-              <h1>JavierAMPJ</h1>
+              <h1>{nama}</h1>
               <div className="bio-nim-header-banner">
               <p>D121211006</p>
-              <p>{Bio}</p>
+              <p>"Today is a Present..."</p>
               </div>
             </div>
           </div>
           <div className="cta-banner-wrapper">
-            <div className='cta-button' onClick={handlerUbahBio}>
-              <p>Bio</p>
+            <input type='text' placeholder='Nama Baru...' className='cta-input' onInput={handlerInputNama} namaBaru={inputNama} />
+            <div className='cta-button' onClick={handlerUbahNama}>
+              <p>Ganti Nama</p>
             </div>
-            <div className='cta-button' onClick={handlerTambahLike}>
-              <p>Like! ({Like})</p>
-            </div>
-            
           </div>
         </div>
       </div>
