@@ -9,7 +9,7 @@ export default function Home() {
   const [inputNama, setInputNama] = useState('')
 
   function handlerInputNama(event){
-    setInputNama(event.target.namaBaru)
+    setInputNama(event.target.value)
   }
 
   function handlerUbahNama(){
@@ -38,7 +38,7 @@ export default function Home() {
             </div>
           </div>
           <div className="cta-banner-wrapper">
-            <input type='text' placeholder='Nama Baru...' className='cta-input' onInput={handlerInputNama} namaBaru={inputNama} />
+            <input type='text' placeholder='Nama Baru...' className='cta-input' onInput={handlerInputNama} value={inputNama} />
             <div className='cta-button' onClick={handlerUbahNama}>
               <p>Ganti Nama</p>
             </div>
