@@ -7,6 +7,7 @@ import './globals.css'
 export default function Home() {
   const [nama, setNama] = useState('JavierAMPJ')
   const [inputNama, setInputNama] = useState('')
+  const [placeholder, setPlaceholder] = useState('Nama Baru...')
 
   const handlerTekanEnter = (event) => {
     if (event.key === 'Enter'){
@@ -19,7 +20,13 @@ export default function Home() {
   }
 
   function handlerUbahNama(){
-    setNama(inputNama)
+    if (inputNama.trim() !== ''){
+      setNama(inputNama)
+      setInputNama('')
+      setPlaceholder('Nama Baru...')
+    } else {
+      setPlaceholder('Nama Tidak Boleh Kosong!')
+    }
   }
   
   return (
@@ -44,7 +51,7 @@ export default function Home() {
             </div>
           </div>
           <div className="cta-banner-wrapper">
-            <input type='text' placeholder='Nama Baru...' className='cta-input' onInput={handlerInputNama} value={inputNama} onKeyDown={handlerTekanEnter}/>
+            <input type='text' placeholder={placeholder} className='cta-input' onInput={handlerInputNama} value={inputNama} onKeyDown={handlerTekanEnter}/>
             <div className='cta-button' onClick={handlerUbahNama}>
               <p>Ganti Nama</p>
             </div>
