@@ -8,6 +8,12 @@ export default function Home() {
   const [nama, setNama] = useState('JavierAMPJ')
   const [inputNama, setInputNama] = useState('')
 
+  const handlerTekanEnter = (event) => {
+    if (event.key === 'Enter'){
+      handlerUbahNama(event)
+    }
+  }
+
   function handlerInputNama(event){
     setInputNama(event.target.value)
   }
@@ -38,7 +44,7 @@ export default function Home() {
             </div>
           </div>
           <div className="cta-banner-wrapper">
-            <input type='text' placeholder='Nama Baru...' className='cta-input' onInput={handlerInputNama} value={inputNama} />
+            <input type='text' placeholder='Nama Baru...' className='cta-input' onInput={handlerInputNama} value={inputNama} onKeyDown={handlerTekanEnter}/>
             <div className='cta-button' onClick={handlerUbahNama}>
               <p>Ganti Nama</p>
             </div>
