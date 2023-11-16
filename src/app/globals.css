@@ -44,8 +44,8 @@ p{
 .profile-header-banner{
   width: 120px;
   height: 120px;
-  
   position: relative;
+  flex-shrink: 0;
 }
 
 .banner-container{
@@ -86,7 +86,19 @@ p{
   align-items: center;
   border-radius: 12px;
   border: 2px solid #d4d2d2;
+  transition: 0.25s;
+  outline: none;
 }
+
+.cta-input:focus {
+  border-color: rgb(87, 79, 229);
+}
+
+.cta-input::after {
+  border: none;
+  border: 2px solid #d4d2d2;
+}
+
 .cta-button {
   display: flex;
   padding: 10px 50px;
@@ -102,6 +114,7 @@ p{
 }
 
 .cta-button:hover{
+  transition: 0.3s;
   background: rgb(103, 89, 193);
 }
 

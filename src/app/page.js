@@ -7,9 +7,9 @@ import './globals.css'
 export default function Home() {
   const [nama, setNama] = useState('JavierAMPJ')
   const [inputNama, setInputNama] = useState('')
-  const [placeholder, setPlaceholder] = useState('Nama Baru...')
+  const [placeholder, setPlaceholder] = useState('Nama baru (3-20 karakter)')
 
-  const handlerTekanEnter = (event) => {
+  function handlerTekanEnter(event){
     if (event.key === 'Enter'){
       handlerUbahNama(event)
     }
@@ -20,10 +20,13 @@ export default function Home() {
   }
 
   function handlerUbahNama(){
-    if (inputNama.trim() !== ''){
+    if (inputNama.trim() !== '' && inputNama.length > 2){
       setNama(inputNama)
       setInputNama('')
-      setPlaceholder('Nama Baru...')
+      setPlaceholder('Nama Baru (3-20 karakter)')
+    } else if (inputNama.trim() !== '' && inputNama.length <= 2){
+      setInputNama('')
+      setPlaceholder('Nama Minimal 3 Karakter!')
     } else {
       setPlaceholder('Nama Tidak Boleh Kosong!')
     }
@@ -51,7 +54,7 @@ export default function Home() {
             </div>
           </div>
           <div className="cta-banner-wrapper">
-            <input type='text' placeholder={placeholder} className='cta-input' onInput={handlerInputNama} value={inputNama} onKeyDown={handlerTekanEnter}/>
+            <input type='text' placeholder={placeholder} className='cta-input' onInput={handlerInputNama} value={inputNama} onKeyDown={handlerTekanEnter} minLength={3} maxLength={20}/>
             <div className='cta-button' onClick={handlerUbahNama}>
               <p>Ganti Nama</p>
             </div>
