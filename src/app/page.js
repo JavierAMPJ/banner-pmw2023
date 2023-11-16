@@ -28,6 +28,7 @@ export default function Home() {
       setInputNama('')
       setPlaceholder('Nama Minimal 3 Karakter!')
     } else {
+      setInputNama('')
       setPlaceholder('Nama Tidak Boleh Kosong!')
     }
   }
