@@ -63,6 +63,7 @@ p{
   border: 2px solid #d4d2d2;
   transition: 0.25s;
   outline: none;
+  user-select: none;
 }
 
 .cta-input:focus {
@@ -72,6 +73,31 @@ p{
 .cta-input::after {
   border: none;
   border: 2px solid #d4d2d2;
+}
+
+.border-change {
+  transition: none;
+  border: 2px solid red;
+}
+
+.border-change:focus {
+  border-color: red;
+}
+
+.shake-placeholder {
+  animation: shake 0.5s ease-in-out;
+}
+
+@keyframes shake {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  25%, 75% {
+    transform: translateX(-5px);
+  }
+  50% {
+    transform: translateX(5px);
+  }
 }
 
 .cta-button {

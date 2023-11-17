@@ -8,28 +8,36 @@ export default function Home() {
   const [nama, setNama] = useState('JavierAMPJ')
   const [inputNama, setInputNama] = useState('')
   const [placeholder, setPlaceholder] = useState('Nama baru (3-20 karakter)')
+  const [border, setBorder] = useState(false)
+  const [shake, setShake] = useState(false)
 
-  function handlerTekanEnter(event){
-    if (event.key === 'Enter'){
-      handlerUbahNama()
+  function handlerTekanEnter(event) {
+    if (event.key === 'Enter') {
+      handlerUbahNama();
     }
   }
 
-  function handlerInputNama(event){
+  function handlerInputNama(event) {
     setInputNama(event.target.value)
   }
 
-  function handlerUbahNama(){
-    if (inputNama.trim() !== '' && inputNama.length >= 3){
+  function handlerUbahNama() {
+    if (inputNama.trim() !== '' && inputNama.length >= 3) {
       setNama(inputNama)
       setInputNama('')
-      setPlaceholder('Nama Baru (3-20 karakter)')
-    } else if (inputNama.trim() !== '' && inputNama.length <= 2){
+      setPlaceholder('Nama Baru (3-20 karakter)');
+      setBorder(false)
+      setShake(false)
+    } else if (inputNama.trim() !== '' && inputNama.length <= 2) {
       setInputNama('')
-      setPlaceholder('Nama Minimal 3 Karakter!')
+      setPlaceholder('Nama Minimal 3 Karakter!');
+      setBorder(true)
+      setShake(true)
     } else {
       setInputNama('')
-      setPlaceholder('Nama Tidak Boleh Kosong!')
+      setPlaceholder('Nama Tidak Boleh Kosong!');
+      setBorder(true)
+      setShake(true)
     }
   }
   
@@ -54,7 +62,15 @@ export default function Home() {
           </div>
         </div>
         <div className="cta-banner-wrapper">
-          <input type='text' placeholder={placeholder} className='cta-input' onInput={handlerInputNama} value={inputNama} onKeyDown={handlerTekanEnter} maxLength={20}/>
+          <input 
+          className={`cta-input ${border ? 'border-change' : ''} ${shake ? 'shake-placeholder' : ''}`}
+          type='text' 
+          placeholder={placeholder} 
+          onInput={handlerInputNama} 
+          value={inputNama} 
+          onKeyDown={handlerTekanEnter} 
+          maxLength={20}
+          />
           <div className='cta-button' onClick={handlerUbahNama}>
             <p>Ganti Nama</p>
           </div>
