@@ -56,21 +56,27 @@ export default function Home() {
           <div className="content-header-banner">
             <h1>{nama}</h1>
             <div className="bio-nim-header-banner">
-            <p>D121211006</p>
-            <p>"Today is a Present..."</p>
+              <p>D121211006</p>
+              <p>"Today is a Present..."</p>
             </div>
           </div>
         </div>
         <div className="cta-banner-wrapper">
-          <input 
-          className={`cta-input ${border ? 'border-change' : ''} ${shake ? 'shake-placeholder' : ''}`}
-          type='text' 
-          placeholder={placeholder} 
-          onInput={handlerInputNama} 
-          value={inputNama} 
-          onKeyDown={handlerTekanEnter} 
-          maxLength={20}
-          />
+          <input
+            className={`cta-input ${border ? 'border-change' : ''} ${shake ? 'shake-placeholder' : ''}`}
+            type='text'
+            placeholder={placeholder}
+            onInput={handlerInputNama}
+            value={inputNama}
+            onKeyDown={handlerTekanEnter}
+            maxLength={20}
+          /> 
+            {/* {inputNama.trim() !== '' && inputNama.length <= 2 && (
+              <div className="error-message">Nama Minimal 3 Karakter!</div>
+            )}
+            {inputNama.trim() === '' && (
+              <div className="error-message">Nama Tidak Boleh Kosong!</div>
+            )}  */}
           <div className='cta-button' onClick={handlerUbahNama}>
             <p>Ganti Nama</p>
           </div>
