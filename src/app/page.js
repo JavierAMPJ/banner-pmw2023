@@ -79,7 +79,6 @@ export default function Home() {
             )}  */}
           <div className='cta-button' onClick={handlerUbahNama}>
             <p>Ganti Nama</p>
-            <p>tes</p>
           </div>
         </div>
       </div>
